@@ -1,0 +1,61 @@
+# ===== OS / editor noise =====
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===== Python =====
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+*.log
+
+# ===== nnU-Net data directories =====
+# Raw, preprocessed, and results/output data produced or consumed by nnU-Net
+# should never be committed - it is large, regenerable, and often
+# patient/subject data that shouldn't live in git history.
+nnUNetFrame/dataset/nnUNet_raw/
+nnUNetFrame/dataset/nnUNet_preprocessed/
+nnUNetFrame/dataset/nnUNet_predictions/
+nnUNetFrame/dataset/label_192/
+
+# nnU-Net results directory: keep configs/metrics, ignore everything else
+# (weights, predictions, logs) via the more specific rules below.
+nnUNetFrame/dataset/nnUNet_results/**/validation/
+nnUNetFrame/dataset/nnUNet_results.zip
+
+# ===== Model weight / checkpoint files (anywhere in the repo) =====
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.hdf5
+*.onnx
+*.pb
+*.safetensors
+*.weights
+
+# ===== Medical imaging / dataset file formats (anywhere in the repo) =====
+*.nii
+*.nii.gz
+*.nrrd
+*.mha
+*.mhd
+*.dcm
+*.npy
+*.npz
+
+# ===== Archives (often bundled datasets/results) =====
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z

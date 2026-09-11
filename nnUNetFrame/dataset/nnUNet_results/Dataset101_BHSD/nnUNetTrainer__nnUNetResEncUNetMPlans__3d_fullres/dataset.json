@@ -1,0 +1,20 @@
+{
+    "name": "BleedBrain",
+    "description": "Multi-class brain hemorrhage segmentation on non-contrast CT",
+    "tensorImageSize": "3D",
+    "reference": "BHSD",
+    "licence": "research-only",
+    "channel_names": {
+        "0": "CT"
+    },
+    "labels": {
+        "background": 0,
+        "epidural": 1,
+        "intraparenchymal": 2,
+        "intraventricular": 3,
+        "subarachnoid": 4,
+        "subdural": 5
+    },
+    "numTraining": 182,
+    "file_ending": ".nii.gz"
+}
