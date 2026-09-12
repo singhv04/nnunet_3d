@@ -27,12 +27,19 @@ nnUNetFrame/dataset/nnUNet_preprocessed/
 nnUNetFrame/dataset/nnUNet_predictions/
 nnUNetFrame/dataset/label_192/
 
-# nnU-Net results directory: keep configs/metrics, ignore everything else
-# (weights, predictions, logs) via the more specific rules below.
+# nnU-Net results directory: keep only what's needed to run inference
+# (dataset.json, plans.json, and one checkpoint per fold, tracked via Git LFS
+# below). Everything else - predictions, logs, plots, debug info - is ignored.
 nnUNetFrame/dataset/nnUNet_results/**/validation/
+nnUNetFrame/dataset/nnUNet_results/**/progress.png
+nnUNetFrame/dataset/nnUNet_results/**/debug.json
+nnUNetFrame/dataset/nnUNet_results/**/training_log_*.txt
 nnUNetFrame/dataset/nnUNet_results.zip
 
-# ===== Model weight / checkpoint files (anywhere in the repo) =====
+# ===== Model weight / checkpoint files =====
+# Ignored by default (large, regenerable via training). Files needed to run
+# inference are tracked via Git LFS (see .gitattributes) and explicitly
+# un-ignored below.
 *.pth
 *.pt
 *.ckpt
@@ -42,6 +49,9 @@ nnUNetFrame/dataset/nnUNet_results.zip
 *.pb
 *.safetensors
 *.weights
+
+# Inference checkpoint(s) kept in the repo via Git LFS - one per trained fold.
+!nnUNetFrame/dataset/nnUNet_results/Dataset101_BHSD/nnUNetTrainer__nnUNetResEncUNetMPlans__3d_fullres/fold_0/checkpoint_best.pth
 
 # ===== Medical imaging / dataset file formats (anywhere in the repo) =====
 *.nii
